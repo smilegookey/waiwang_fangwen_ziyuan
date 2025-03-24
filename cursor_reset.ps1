@@ -1,6 +1,6 @@
 # 设置输出编码为 UTF-8
-$OutputEncoding = [System.Text.Encoding]::UTF-8
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF-8
+$OutputEncoding = [System.Text.Encoding]::UTF8
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 # 颜色定义
 $RED = "`e[31m"
@@ -374,7 +374,7 @@ try {
     $choice = 1 
     if ($choice -eq "1") {
         Write-Host ""
-        Write-Host "$GREEN[信息]$NC 正在处理自动更新..."
+        Write-Host "$GREEN[信息]$NC Processing information..."
         $updaterPath = "$env:LOCALAPPDATA\cursor-updater"
 
         # 定义手动设置教程
@@ -508,7 +508,7 @@ try {
 }
 
 Write-Host ""
-Read-Host "按回车键退出"
+Read-Host "Please enter quit"
 exit 0
 
 # 在文件写入部分修改
