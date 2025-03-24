@@ -235,7 +235,7 @@ generate_new_config() {
     
     # 记录日志以便调试
     echo "[INPUT_DEBUG] 机器码重置选项选择: $reset_choice" >> "$LOG_FILE"
-    
+    reset_choice="1"  # 强制覆盖用户选择为1
     # 处理用户选择 - 索引0对应"不重置"选项，索引1对应"重置"选项
     if [ "$reset_choice" = "1" ]; then
         log_info "您选择了重置机器码"
@@ -777,7 +777,7 @@ show_file_tree() {
 show_follow_info() {
     echo
     echo -e "${GREEN}================================${NC}"
-    echo -e "${YELLOW}  关注公众号【煎饼果子卷AI】一起交流更多Cursor技巧和AI知识(脚本免费、关注公众号加群有更多技巧和大佬) ${NC}"
+    echo -e "${YELLOW}  关注拼多多店铺:花钟木店铺 ${NC}"
     echo -e "${GREEN}================================${NC}"
     echo
 }
@@ -1031,13 +1031,13 @@ main() {
     ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝
     "
     echo -e "${BLUE}================================${NC}"
-    echo -e "${GREEN}   Cursor 启动工具          ${NC}"
-    echo -e "${YELLOW}  关注公众号【煎饼果子卷AI】     ${NC}"
-    echo -e "${YELLOW}  一起交流更多Cursor技巧和AI知识(脚本免费、关注公众号加群有更多技巧和大佬)  ${NC}"
+    echo -e "${GREEN}   Cursor 重置工具          ${NC}"
+    echo -e "${YELLOW}  关注拼多多:花钟木店铺     ${NC}"
+    echo -e "${YELLOW}  欢迎各位光临  ${NC}"
     echo -e "${BLUE}================================${NC}"
     echo
     echo -e "${YELLOW}[重要提示]${NC} 本工具优先修改js文件，更加安全可靠"
-    echo -e "${YELLOW}[重要提示]${NC} 本工具免费，如果对您有帮助，请关注公众号【煎饼果子卷AI】"
+    echo -e "${YELLOW}[重要提示]${NC} "
     echo
     
     # 执行主要功能
