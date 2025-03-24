@@ -1,6 +1,6 @@
 # 设置输出编码为 UTF-8
-$OutputEncoding = [System.Text.Encoding]::GBK
-[Console]::OutputEncoding = [System.Text.Encoding]::GBK
+$OutputEncoding = [System.Text.Encoding]::UTF-8
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF-8
 
 # 颜色定义
 $RED = "`e[31m"
