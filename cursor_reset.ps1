@@ -1,19 +1,19 @@
-# ÉèÖÃÊä³ö±àÂëÎª UTF-8
-$OutputEncoding = [System.Text.Encoding]::UTF8
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+# è®¾ç½®è¾“å‡ºç¼–ç ä¸º UTF-8
+$OutputEncoding = [System.Text.Encoding]::GBK
+[Console]::OutputEncoding = [System.Text.Encoding]::GBK
 
-# ÑÕÉ«¶¨Òå
+# é¢œè‰²å®šä¹‰
 $RED = "`e[31m"
 $GREEN = "`e[32m"
 $YELLOW = "`e[33m"
 $BLUE = "`e[34m"
 $NC = "`e[0m"
 
-# ÅäÖÃÎÄ¼şÂ·¾¶
+# é…ç½®æ–‡ä»¶è·¯å¾„
 $STORAGE_FILE = "$env:APPDATA\Cursor\User\globalStorage\storage.json"
 $BACKUP_DIR = "$env:APPDATA\Cursor\User\globalStorage\backups"
 
-# ¼ì²é¹ÜÀíÔ±È¨ÏŞ
+# æ£€æŸ¥ç®¡ç†å‘˜æƒé™
 function Test-Administrator {
     $user = [Security.Principal.WindowsIdentity]::GetCurrent()
     $principal = New-Object Security.Principal.WindowsPrincipal($user)
@@ -21,96 +21,96 @@ function Test-Administrator {
 }
 
 if (-not (Test-Administrator)) {
-    Write-Host "$RED[´íÎó]$NC ÇëÒÔ¹ÜÀíÔ±Éí·İÔËĞĞ´Ë½Å±¾"
-    Write-Host "ÇëÓÒ¼üµã»÷½Å±¾£¬Ñ¡Ôñ'ÒÔ¹ÜÀíÔ±Éí·İÔËĞĞ'"
-    Read-Host "°´»Ø³µ¼üÍË³ö"
+    Write-Host "$RED[é”™è¯¯]$NC è¯·ä»¥ç®¡ç†å‘˜èº«ä»½è¿è¡Œæ­¤è„šæœ¬"
+    Write-Host "è¯·å³é”®ç‚¹å‡»è„šæœ¬ï¼Œé€‰æ‹©'ä»¥ç®¡ç†å‘˜èº«ä»½è¿è¡Œ'"
+    Read-Host "æŒ‰å›è½¦é”®é€€å‡º"
     exit 1
 }
 
-# ÏÔÊ¾ Logo
+# æ˜¾ç¤º Logo
 Clear-Host
 Write-Host @"
 
-    ¨€¨€¨€¨€¨€¨€¨[¨€¨€¨[   ¨€¨€¨[¨€¨€¨€¨€¨€¨€¨[ ¨€¨€¨€¨€¨€¨€¨€¨[ ¨€¨€¨€¨€¨€¨€¨[ ¨€¨€¨€¨€¨€¨€¨[ 
-   ¨€¨€¨X¨T¨T¨T¨T¨a¨€¨€¨U   ¨€¨€¨U¨€¨€¨X¨T¨T¨€¨€¨[¨€¨€¨X¨T¨T¨T¨T¨a¨€¨€¨X¨T¨T¨T¨€¨€¨[¨€¨€¨X¨T¨T¨€¨€¨[
-   ¨€¨€¨U     ¨€¨€¨U   ¨€¨€¨U¨€¨€¨€¨€¨€¨€¨X¨a¨€¨€¨€¨€¨€¨€¨€¨[¨€¨€¨U   ¨€¨€¨U¨€¨€¨€¨€¨€¨€¨X¨a
-   ¨€¨€¨U     ¨€¨€¨U   ¨€¨€¨U¨€¨€¨X¨T¨T¨€¨€¨[¨^¨T¨T¨T¨T¨€¨€¨U¨€¨€¨U   ¨€¨€¨U¨€¨€¨X¨T¨T¨€¨€¨[
-   ¨^¨€¨€¨€¨€¨€¨€¨[¨^¨€¨€¨€¨€¨€¨€¨X¨a¨€¨€¨U  ¨€¨€¨U¨€¨€¨€¨€¨€¨€¨€¨U¨^¨€¨€¨€¨€¨€¨€¨X¨a¨€¨€¨U  ¨€¨€¨U
-    ¨^¨T¨T¨T¨T¨T¨a ¨^¨T¨T¨T¨T¨T¨a ¨^¨T¨a  ¨^¨T¨a¨^¨T¨T¨T¨T¨T¨T¨a ¨^¨T¨T¨T¨T¨T¨a ¨^¨T¨a  ¨^¨T¨a
+    â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—â–ˆâ–ˆâ•—   â–ˆâ–ˆâ•—â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•— â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•— â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•— â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•— 
+   â–ˆâ–ˆâ•”â•â•â•â•â•â–ˆâ–ˆâ•‘   â–ˆâ–ˆâ•‘â–ˆâ–ˆâ•”â•â•â–ˆâ–ˆâ•—â–ˆâ–ˆâ•”â•â•â•â•â•â–ˆâ–ˆâ•”â•â•â•â–ˆâ–ˆâ•—â–ˆâ–ˆâ•”â•â•â–ˆâ–ˆâ•—
+   â–ˆâ–ˆâ•‘     â–ˆâ–ˆâ•‘   â–ˆâ–ˆâ•‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•”â•â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—â–ˆâ–ˆâ•‘   â–ˆâ–ˆâ•‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•”â•
+   â–ˆâ–ˆâ•‘     â–ˆâ–ˆâ•‘   â–ˆâ–ˆâ•‘â–ˆâ–ˆâ•”â•â•â–ˆâ–ˆâ•—â•šâ•â•â•â•â–ˆâ–ˆâ•‘â–ˆâ–ˆâ•‘   â–ˆâ–ˆâ•‘â–ˆâ–ˆâ•”â•â•â–ˆâ–ˆâ•—
+   â•šâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—â•šâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•”â•â–ˆâ–ˆâ•‘  â–ˆâ–ˆâ•‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•‘â•šâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•”â•â–ˆâ–ˆâ•‘  â–ˆâ–ˆâ•‘
+    â•šâ•â•â•â•â•â• â•šâ•â•â•â•â•â• â•šâ•â•  â•šâ•â•â•šâ•â•â•â•â•â•â• â•šâ•â•â•â•â•â• â•šâ•â•  â•šâ•â•
 
 "@
 Write-Host "$BLUE================================$NC"
-Write-Host "$GREEN   Cursor Éè±¸ID ĞŞ¸Ä¹¤¾ß          $NC"
-Write-Host "$YELLOW  ¹Ø×¢Æ´¶à¶à:»¨ÖÓÄ¾µêÆÌ $NC"
+Write-Host "$GREEN   Cursor è®¾å¤‡ID ä¿®æ”¹å·¥å…·          $NC"
+Write-Host "$YELLOW  å…³æ³¨æ‹¼å¤šå¤š:èŠ±é’Ÿæœ¨åº—é“º $NC"
 Write-Host "$BLUE================================$NC"
 Write-Host ""
 
-# »ñÈ¡²¢ÏÔÊ¾ Cursor °æ±¾
+# è·å–å¹¶æ˜¾ç¤º Cursor ç‰ˆæœ¬
 function Get-CursorVersion {
     try {
-        # Ö÷Òª¼ì²âÂ·¾¶
+        # ä¸»è¦æ£€æµ‹è·¯å¾„
         $packagePath = "$env:LOCALAPPDATA\Programs\cursor\resources\app\package.json"
         
         if (Test-Path $packagePath) {
             $packageJson = Get-Content $packagePath -Raw | ConvertFrom-Json
             if ($packageJson.version) {
-                Write-Host "$GREEN[ĞÅÏ¢]$NC µ±Ç°°²×°µÄ Cursor °æ±¾: v$($packageJson.version)"
+                Write-Host "$GREEN[ä¿¡æ¯]$NC å½“å‰å®‰è£…çš„ Cursor ç‰ˆæœ¬: v$($packageJson.version)"
                 return $packageJson.version
             }
         }
 
-        # ±¸ÓÃÂ·¾¶¼ì²â
+        # å¤‡ç”¨è·¯å¾„æ£€æµ‹
         $altPath = "$env:LOCALAPPDATA\cursor\resources\app\package.json"
         if (Test-Path $altPath) {
             $packageJson = Get-Content $altPath -Raw | ConvertFrom-Json
             if ($packageJson.version) {
-                Write-Host "$GREEN[ĞÅÏ¢]$NC µ±Ç°°²×°µÄ Cursor °æ±¾: v$($packageJson.version)"
+                Write-Host "$GREEN[ä¿¡æ¯]$NC å½“å‰å®‰è£…çš„ Cursor ç‰ˆæœ¬: v$($packageJson.version)"
                 return $packageJson.version
             }
         }
 
-        Write-Host "$YELLOW[¾¯¸æ]$NC ÎŞ·¨¼ì²âµ½ Cursor °æ±¾"
-        Write-Host "$YELLOW[ÌáÊ¾]$NC ÇëÈ·±£ Cursor ÒÑÕıÈ·°²×°"
+        Write-Host "$YELLOW[è­¦å‘Š]$NC æ— æ³•æ£€æµ‹åˆ° Cursor ç‰ˆæœ¬"
+        Write-Host "$YELLOW[æç¤º]$NC è¯·ç¡®ä¿ Cursor å·²æ­£ç¡®å®‰è£…"
         return $null
     }
     catch {
-        Write-Host "$RED[´íÎó]$NC »ñÈ¡ Cursor °æ±¾Ê§°Ü: $_"
+        Write-Host "$RED[é”™è¯¯]$NC è·å– Cursor ç‰ˆæœ¬å¤±è´¥: $_"
         return $null
     }
 }
 
-# »ñÈ¡²¢ÏÔÊ¾°æ±¾ĞÅÏ¢
+# è·å–å¹¶æ˜¾ç¤ºç‰ˆæœ¬ä¿¡æ¯
 $cursorVersion = Get-CursorVersion
 Write-Host ""
 
-Write-Host "$YELLOW[ÖØÒªÌáÊ¾]$NC ×îĞÂµÄ 0.47.x (ÒÔÖ§³Ö)"
+Write-Host "$YELLOW[é‡è¦æç¤º]$NC æœ€æ–°çš„ 0.47.x (ä»¥æ”¯æŒ)"
 Write-Host ""
 
-# ¼ì²é²¢¹Ø±Õ Cursor ½ø³Ì
-Write-Host "$GREEN[ĞÅÏ¢]$NC ¼ì²é Cursor ½ø³Ì..."
+# æ£€æŸ¥å¹¶å…³é—­ Cursor è¿›ç¨‹
+Write-Host "$GREEN[ä¿¡æ¯]$NC æ£€æŸ¥ Cursor è¿›ç¨‹..."
 
 function Get-ProcessDetails {
     param($processName)
-    Write-Host "$BLUE[µ÷ÊÔ]$NC ÕıÔÚ»ñÈ¡ $processName ½ø³ÌÏêÏ¸ĞÅÏ¢£º"
+    Write-Host "$BLUE[è°ƒè¯•]$NC æ­£åœ¨è·å– $processName è¿›ç¨‹è¯¦ç»†ä¿¡æ¯ï¼š"
     Get-WmiObject Win32_Process -Filter "name='$processName'" | 
         Select-Object ProcessId, ExecutablePath, CommandLine | 
         Format-List
 }
 
-# ¶¨Òå×î´óÖØÊÔ´ÎÊıºÍµÈ´ıÊ±¼ä
+# å®šä¹‰æœ€å¤§é‡è¯•æ¬¡æ•°å’Œç­‰å¾…æ—¶é—´
 $MAX_RETRIES = 5
 $WAIT_TIME = 1
 
-# ´¦Àí½ø³Ì¹Ø±Õ
+# å¤„ç†è¿›ç¨‹å…³é—­
 function Close-CursorProcess {
     param($processName)
     
     $process = Get-Process -Name $processName -ErrorAction SilentlyContinue
     if ($process) {
-        Write-Host "$YELLOW[¾¯¸æ]$NC ·¢ÏÖ $processName ÕıÔÚÔËĞĞ"
+        Write-Host "$YELLOW[è­¦å‘Š]$NC å‘ç° $processName æ­£åœ¨è¿è¡Œ"
         Get-ProcessDetails $processName
         
-        Write-Host "$YELLOW[¾¯¸æ]$NC ³¢ÊÔ¹Ø±Õ $processName..."
+        Write-Host "$YELLOW[è­¦å‘Š]$NC å°è¯•å…³é—­ $processName..."
         Stop-Process -Name $processName -Force
         
         $retryCount = 0
@@ -120,39 +120,39 @@ function Close-CursorProcess {
             
             $retryCount++
             if ($retryCount -ge $MAX_RETRIES) {
-                Write-Host "$RED[´íÎó]$NC ÔÚ $MAX_RETRIES ´Î³¢ÊÔºóÈÔÎŞ·¨¹Ø±Õ $processName"
+                Write-Host "$RED[é”™è¯¯]$NC åœ¨ $MAX_RETRIES æ¬¡å°è¯•åä»æ— æ³•å…³é—­ $processName"
                 Get-ProcessDetails $processName
-                Write-Host "$RED[´íÎó]$NC ÇëÊÖ¶¯¹Ø±Õ½ø³ÌºóÖØÊÔ"
-                Read-Host "°´»Ø³µ¼üÍË³ö"
+                Write-Host "$RED[é”™è¯¯]$NC è¯·æ‰‹åŠ¨å…³é—­è¿›ç¨‹åé‡è¯•"
+                Read-Host "æŒ‰å›è½¦é”®é€€å‡º"
                 exit 1
             }
-            Write-Host "$YELLOW[¾¯¸æ]$NC µÈ´ı½ø³Ì¹Ø±Õ£¬³¢ÊÔ $retryCount/$MAX_RETRIES..."
+            Write-Host "$YELLOW[è­¦å‘Š]$NC ç­‰å¾…è¿›ç¨‹å…³é—­ï¼Œå°è¯• $retryCount/$MAX_RETRIES..."
             Start-Sleep -Seconds $WAIT_TIME
         }
-        Write-Host "$GREEN[ĞÅÏ¢]$NC $processName ÒÑ³É¹¦¹Ø±Õ"
+        Write-Host "$GREEN[ä¿¡æ¯]$NC $processName å·²æˆåŠŸå…³é—­"
     }
 }
 
-# ¹Ø±ÕËùÓĞ Cursor ½ø³Ì
+# å…³é—­æ‰€æœ‰ Cursor è¿›ç¨‹
 Close-CursorProcess "Cursor"
 Close-CursorProcess "cursor"
 
-# ´´½¨±¸·İÄ¿Â¼
+# åˆ›å»ºå¤‡ä»½ç›®å½•
 if (-not (Test-Path $BACKUP_DIR)) {
     New-Item -ItemType Directory -Path $BACKUP_DIR | Out-Null
 }
 
-# ±¸·İÏÖÓĞÅäÖÃ
+# å¤‡ä»½ç°æœ‰é…ç½®
 if (Test-Path $STORAGE_FILE) {
-    Write-Host "$GREEN[ĞÅÏ¢]$NC ÕıÔÚ±¸·İÅäÖÃÎÄ¼ş..."
+    Write-Host "$GREEN[ä¿¡æ¯]$NC æ­£åœ¨å¤‡ä»½é…ç½®æ–‡ä»¶..."
     $backupName = "storage.json.backup_$(Get-Date -Format 'yyyyMMdd_HHmmss')"
     Copy-Item $STORAGE_FILE "$BACKUP_DIR\$backupName"
 }
 
-# Éú³ÉĞÂµÄ ID
-Write-Host "$GREEN[ĞÅÏ¢]$NC ÕıÔÚÉú³ÉĞÂµÄ ID..."
+# ç”Ÿæˆæ–°çš„ ID
+Write-Host "$GREEN[ä¿¡æ¯]$NC æ­£åœ¨ç”Ÿæˆæ–°çš„ ID..."
 
-# ÔÚÑÕÉ«¶¨ÒåºóÌí¼Ó´Ëº¯Êı
+# åœ¨é¢œè‰²å®šä¹‰åæ·»åŠ æ­¤å‡½æ•°
 function Get-RandomHex {
     param (
         [int]$length
@@ -166,7 +166,7 @@ function Get-RandomHex {
     return $hexString
 }
 
-# ¸Ä½ø ID Éú³Éº¯Êı
+# æ”¹è¿› ID ç”Ÿæˆå‡½æ•°
 function New-StandardMachineId {
     $template = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx"
     $result = $template -replace '[xy]', {
@@ -178,124 +178,124 @@ function New-StandardMachineId {
     return $result
 }
 
-# ÔÚÉú³É ID Ê±Ê¹ÓÃĞÂº¯Êı
+# åœ¨ç”Ÿæˆ ID æ—¶ä½¿ç”¨æ–°å‡½æ•°
 $MAC_MACHINE_ID = New-StandardMachineId
 $UUID = [System.Guid]::NewGuid().ToString()
-# ½« auth0|user_ ×ª»»Îª×Ö½ÚÊı×éµÄÊ®Áù½øÖÆ
+# å°† auth0|user_ è½¬æ¢ä¸ºå­—èŠ‚æ•°ç»„çš„åå…­è¿›åˆ¶
 $prefixBytes = [System.Text.Encoding]::UTF8.GetBytes("auth0|user_")
 $prefixHex = -join ($prefixBytes | ForEach-Object { '{0:x2}' -f $_ })
-# Éú³É32×Ö½Ú(64¸öÊ®Áù½øÖÆ×Ö·û)µÄËæ»úÊı×÷Îª machineId µÄËæ»ú²¿·Ö
+# ç”Ÿæˆ32å­—èŠ‚(64ä¸ªåå…­è¿›åˆ¶å­—ç¬¦)çš„éšæœºæ•°ä½œä¸º machineId çš„éšæœºéƒ¨åˆ†
 $randomPart = Get-RandomHex -length 32
 $MACHINE_ID = "$prefixHex$randomPart"
 $SQM_ID = "{$([System.Guid]::NewGuid().ToString().ToUpper())}"
 
-# ÔÚUpdate-MachineGuidº¯ÊıÇ°Ìí¼ÓÈ¨ÏŞ¼ì²é
+# åœ¨Update-MachineGuidå‡½æ•°å‰æ·»åŠ æƒé™æ£€æŸ¥
 if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
-    Write-Host "$RED[´íÎó]$NC ÇëÊ¹ÓÃ¹ÜÀíÔ±È¨ÏŞÔËĞĞ´Ë½Å±¾"
+    Write-Host "$RED[é”™è¯¯]$NC è¯·ä½¿ç”¨ç®¡ç†å‘˜æƒé™è¿è¡Œæ­¤è„šæœ¬"
     Start-Process powershell "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
     exit
 }
 
 function Update-MachineGuid {
     try {
-        # ¼ì²é×¢²á±íÂ·¾¶ÊÇ·ñ´æÔÚ£¬²»´æÔÚÔò´´½¨
+        # æ£€æŸ¥æ³¨å†Œè¡¨è·¯å¾„æ˜¯å¦å­˜åœ¨ï¼Œä¸å­˜åœ¨åˆ™åˆ›å»º
         $registryPath = "HKLM:\SOFTWARE\Microsoft\Cryptography"
         if (-not (Test-Path $registryPath)) {
-            Write-Host "$YELLOW[¾¯¸æ]$NC ×¢²á±íÂ·¾¶²»´æÔÚ: $registryPath£¬ÕıÔÚ´´½¨..."
+            Write-Host "$YELLOW[è­¦å‘Š]$NC æ³¨å†Œè¡¨è·¯å¾„ä¸å­˜åœ¨: $registryPathï¼Œæ­£åœ¨åˆ›å»º..."
             New-Item -Path $registryPath -Force | Out-Null
-            Write-Host "$GREEN[ĞÅÏ¢]$NC ×¢²á±íÂ·¾¶´´½¨³É¹¦"
+            Write-Host "$GREEN[ä¿¡æ¯]$NC æ³¨å†Œè¡¨è·¯å¾„åˆ›å»ºæˆåŠŸ"
         }
 
-        # »ñÈ¡µ±Ç°µÄ MachineGuid£¬Èç¹û²»´æÔÚÔòÊ¹ÓÃ¿Õ×Ö·û´®×÷ÎªÄ¬ÈÏÖµ
+        # è·å–å½“å‰çš„ MachineGuidï¼Œå¦‚æœä¸å­˜åœ¨åˆ™ä½¿ç”¨ç©ºå­—ç¬¦ä¸²ä½œä¸ºé»˜è®¤å€¼
         $originalGuid = ""
         try {
             $currentGuid = Get-ItemProperty -Path $registryPath -Name MachineGuid -ErrorAction SilentlyContinue
             if ($currentGuid) {
                 $originalGuid = $currentGuid.MachineGuid
-                Write-Host "$GREEN[ĞÅÏ¢]$NC µ±Ç°×¢²á±íÖµ£º"
+                Write-Host "$GREEN[ä¿¡æ¯]$NC å½“å‰æ³¨å†Œè¡¨å€¼ï¼š"
                 Write-Host "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography" 
                 Write-Host "    MachineGuid    REG_SZ    $originalGuid"
             } else {
-                Write-Host "$YELLOW[¾¯¸æ]$NC MachineGuid Öµ²»´æÔÚ£¬½«´´½¨ĞÂÖµ"
+                Write-Host "$YELLOW[è­¦å‘Š]$NC MachineGuid å€¼ä¸å­˜åœ¨ï¼Œå°†åˆ›å»ºæ–°å€¼"
             }
         } catch {
-            Write-Host "$YELLOW[¾¯¸æ]$NC »ñÈ¡ MachineGuid Ê§°Ü: $($_.Exception.Message)"
+            Write-Host "$YELLOW[è­¦å‘Š]$NC è·å– MachineGuid å¤±è´¥: $($_.Exception.Message)"
         }
 
-        # ´´½¨±¸·İÄ¿Â¼£¨Èç¹û²»´æÔÚ£©
+        # åˆ›å»ºå¤‡ä»½ç›®å½•ï¼ˆå¦‚æœä¸å­˜åœ¨ï¼‰
         if (-not (Test-Path $BACKUP_DIR)) {
             New-Item -ItemType Directory -Path $BACKUP_DIR -Force | Out-Null
         }
 
-        # ´´½¨±¸·İÎÄ¼ş£¨½öµ±Ô­Ê¼Öµ´æÔÚÊ±£©
+        # åˆ›å»ºå¤‡ä»½æ–‡ä»¶ï¼ˆä»…å½“åŸå§‹å€¼å­˜åœ¨æ—¶ï¼‰
         if ($originalGuid) {
             $backupFile = "$BACKUP_DIR\MachineGuid_$(Get-Date -Format 'yyyyMMdd_HHmmss').reg"
             $backupResult = Start-Process "reg.exe" -ArgumentList "export", "`"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography`"", "`"$backupFile`"" -NoNewWindow -Wait -PassThru
             
             if ($backupResult.ExitCode -eq 0) {
-                Write-Host "$GREEN[ĞÅÏ¢]$NC ×¢²á±íÏîÒÑ±¸·İµ½£º$backupFile"
+                Write-Host "$GREEN[ä¿¡æ¯]$NC æ³¨å†Œè¡¨é¡¹å·²å¤‡ä»½åˆ°ï¼š$backupFile"
             } else {
-                Write-Host "$YELLOW[¾¯¸æ]$NC ±¸·İ´´½¨Ê§°Ü£¬¼ÌĞøÖ´ĞĞ..."
+                Write-Host "$YELLOW[è­¦å‘Š]$NC å¤‡ä»½åˆ›å»ºå¤±è´¥ï¼Œç»§ç»­æ‰§è¡Œ..."
             }
         }
 
-        # Éú³ÉĞÂGUID
+        # ç”Ÿæˆæ–°GUID
         $newGuid = [System.Guid]::NewGuid().ToString()
 
-        # ¸üĞÂ»ò´´½¨×¢²á±íÖµ
+        # æ›´æ–°æˆ–åˆ›å»ºæ³¨å†Œè¡¨å€¼
         Set-ItemProperty -Path $registryPath -Name MachineGuid -Value $newGuid -Force -ErrorAction Stop
         
-        # ÑéÖ¤¸üĞÂ
+        # éªŒè¯æ›´æ–°
         $verifyGuid = (Get-ItemProperty -Path $registryPath -Name MachineGuid -ErrorAction Stop).MachineGuid
         if ($verifyGuid -ne $newGuid) {
-            throw "×¢²á±íÑéÖ¤Ê§°Ü£º¸üĞÂºóµÄÖµ ($verifyGuid) ÓëÔ¤ÆÚÖµ ($newGuid) ²»Æ¥Åä"
+            throw "æ³¨å†Œè¡¨éªŒè¯å¤±è´¥ï¼šæ›´æ–°åçš„å€¼ ($verifyGuid) ä¸é¢„æœŸå€¼ ($newGuid) ä¸åŒ¹é…"
         }
 
-        Write-Host "$GREEN[ĞÅÏ¢]$NC ×¢²á±í¸üĞÂ³É¹¦£º"
+        Write-Host "$GREEN[ä¿¡æ¯]$NC æ³¨å†Œè¡¨æ›´æ–°æˆåŠŸï¼š"
         Write-Host "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography"
         Write-Host "    MachineGuid    REG_SZ    $newGuid"
         return $true
     }
     catch {
-        Write-Host "$RED[´íÎó]$NC ×¢²á±í²Ù×÷Ê§°Ü£º$($_.Exception.Message)"
+        Write-Host "$RED[é”™è¯¯]$NC æ³¨å†Œè¡¨æ“ä½œå¤±è´¥ï¼š$($_.Exception.Message)"
         
-        # ³¢ÊÔ»Ö¸´±¸·İ£¨Èç¹û´æÔÚ£©
+        # å°è¯•æ¢å¤å¤‡ä»½ï¼ˆå¦‚æœå­˜åœ¨ï¼‰
         if (($backupFile -ne $null) -and (Test-Path $backupFile)) {
-            Write-Host "$YELLOW[»Ö¸´]$NC ÕıÔÚ´Ó±¸·İ»Ö¸´..."
+            Write-Host "$YELLOW[æ¢å¤]$NC æ­£åœ¨ä»å¤‡ä»½æ¢å¤..."
             $restoreResult = Start-Process "reg.exe" -ArgumentList "import", "`"$backupFile`"" -NoNewWindow -Wait -PassThru
             
             if ($restoreResult.ExitCode -eq 0) {
-                Write-Host "$GREEN[»Ö¸´³É¹¦]$NC ÒÑ»¹Ô­Ô­Ê¼×¢²á±íÖµ"
+                Write-Host "$GREEN[æ¢å¤æˆåŠŸ]$NC å·²è¿˜åŸåŸå§‹æ³¨å†Œè¡¨å€¼"
             } else {
-                Write-Host "$RED[´íÎó]$NC »Ö¸´Ê§°Ü£¬ÇëÊÖ¶¯µ¼Èë±¸·İÎÄ¼ş£º$backupFile"
+                Write-Host "$RED[é”™è¯¯]$NC æ¢å¤å¤±è´¥ï¼Œè¯·æ‰‹åŠ¨å¯¼å…¥å¤‡ä»½æ–‡ä»¶ï¼š$backupFile"
             }
         } else {
-            Write-Host "$YELLOW[¾¯¸æ]$NC Î´ÕÒµ½±¸·İÎÄ¼ş»ò±¸·İ´´½¨Ê§°Ü£¬ÎŞ·¨×Ô¶¯»Ö¸´"
+            Write-Host "$YELLOW[è­¦å‘Š]$NC æœªæ‰¾åˆ°å¤‡ä»½æ–‡ä»¶æˆ–å¤‡ä»½åˆ›å»ºå¤±è´¥ï¼Œæ— æ³•è‡ªåŠ¨æ¢å¤"
         }
         return $false
     }
 }
 
-# ´´½¨»ò¸üĞÂÅäÖÃÎÄ¼ş
-Write-Host "$GREEN[ĞÅÏ¢]$NC ÕıÔÚ¸üĞÂÅäÖÃ..."
+# åˆ›å»ºæˆ–æ›´æ–°é…ç½®æ–‡ä»¶
+Write-Host "$GREEN[ä¿¡æ¯]$NC æ­£åœ¨æ›´æ–°é…ç½®..."
 
 try {
-    # ¼ì²éÅäÖÃÎÄ¼şÊÇ·ñ´æÔÚ
+    # æ£€æŸ¥é…ç½®æ–‡ä»¶æ˜¯å¦å­˜åœ¨
     if (-not (Test-Path $STORAGE_FILE)) {
-        Write-Host "$RED[´íÎó]$NC Î´ÕÒµ½ÅäÖÃÎÄ¼ş: $STORAGE_FILE"
-        Write-Host "$YELLOW[ÌáÊ¾]$NC ÇëÏÈ°²×°²¢ÔËĞĞÒ»´Î Cursor ºóÔÙÊ¹ÓÃ´Ë½Å±¾"
-        Read-Host "°´»Ø³µ¼üÍË³ö"
+        Write-Host "$RED[é”™è¯¯]$NC æœªæ‰¾åˆ°é…ç½®æ–‡ä»¶: $STORAGE_FILE"
+        Write-Host "$YELLOW[æç¤º]$NC è¯·å…ˆå®‰è£…å¹¶è¿è¡Œä¸€æ¬¡ Cursor åå†ä½¿ç”¨æ­¤è„šæœ¬"
+        Read-Host "æŒ‰å›è½¦é”®é€€å‡º"
         exit 1
     }
 
-    # ¶ÁÈ¡ÏÖÓĞÅäÖÃÎÄ¼ş
+    # è¯»å–ç°æœ‰é…ç½®æ–‡ä»¶
     try {
         $originalContent = Get-Content $STORAGE_FILE -Raw -Encoding UTF8
         
-        # ½« JSON ×Ö·û´®×ª»»Îª PowerShell ¶ÔÏó
+        # å°† JSON å­—ç¬¦ä¸²è½¬æ¢ä¸º PowerShell å¯¹è±¡
         $config = $originalContent | ConvertFrom-Json 
 
-        # ±¸·İµ±Ç°Öµ
+        # å¤‡ä»½å½“å‰å€¼
         $oldValues = @{
             'machineId' = $config.'telemetry.machineId'
             'macMachineId' = $config.'telemetry.macMachineId'
@@ -303,22 +303,22 @@ try {
             'sqmId' = $config.'telemetry.sqmId'
         }
 
-        # ¸üĞÂÌØ¶¨µÄÖµ
+        # æ›´æ–°ç‰¹å®šçš„å€¼
         $config.'telemetry.machineId' = $MACHINE_ID
         $config.'telemetry.macMachineId' = $MAC_MACHINE_ID
         $config.'telemetry.devDeviceId' = $UUID
         $config.'telemetry.sqmId' = $SQM_ID
 
-        # ½«¸üĞÂºóµÄ¶ÔÏó×ª»»»Ø JSON ²¢±£´æ
+        # å°†æ›´æ–°åçš„å¯¹è±¡è½¬æ¢å› JSON å¹¶ä¿å­˜
         $updatedJson = $config | ConvertTo-Json -Depth 10
         [System.IO.File]::WriteAllText(
             [System.IO.Path]::GetFullPath($STORAGE_FILE), 
             $updatedJson, 
             [System.Text.Encoding]::UTF8
         )
-        Write-Host "$GREEN[ĞÅÏ¢]$NC ³É¹¦¸üĞÂÅäÖÃÎÄ¼ş"
+        Write-Host "$GREEN[ä¿¡æ¯]$NC æˆåŠŸæ›´æ–°é…ç½®æ–‡ä»¶"
     } catch {
-        # Èç¹û³ö´í£¬³¢ÊÔ»Ö¸´Ô­Ê¼ÄÚÈİ
+        # å¦‚æœå‡ºé”™ï¼Œå°è¯•æ¢å¤åŸå§‹å†…å®¹
         if ($originalContent) {
             [System.IO.File]::WriteAllText(
                 [System.IO.Path]::GetFullPath($STORAGE_FILE), 
@@ -326,201 +326,201 @@ try {
                 [System.Text.Encoding]::UTF8
             )
         }
-        throw "´¦Àí JSON Ê§°Ü: $_"
+        throw "å¤„ç† JSON å¤±è´¥: $_"
     }
-    # Ö±½ÓÖ´ĞĞ¸üĞÂ MachineGuid£¬²»ÔÙÑ¯ÎÊ
+    # ç›´æ¥æ‰§è¡Œæ›´æ–° MachineGuidï¼Œä¸å†è¯¢é—®
     Update-MachineGuid
-    # ÏÔÊ¾½á¹û
+    # æ˜¾ç¤ºç»“æœ
     Write-Host ""
-    Write-Host "$GREEN[ĞÅÏ¢]$NC ÒÑ¸üĞÂÅäÖÃ:"
-    Write-Host "$BLUE[µ÷ÊÔ]$NC machineId: $MACHINE_ID"
-    Write-Host "$BLUE[µ÷ÊÔ]$NC macMachineId: $MAC_MACHINE_ID"
-    Write-Host "$BLUE[µ÷ÊÔ]$NC devDeviceId: $UUID"
-    Write-Host "$BLUE[µ÷ÊÔ]$NC sqmId: $SQM_ID"
+    Write-Host "$GREEN[ä¿¡æ¯]$NC å·²æ›´æ–°é…ç½®:"
+    Write-Host "$BLUE[è°ƒè¯•]$NC machineId: $MACHINE_ID"
+    Write-Host "$BLUE[è°ƒè¯•]$NC macMachineId: $MAC_MACHINE_ID"
+    Write-Host "$BLUE[è°ƒè¯•]$NC devDeviceId: $UUID"
+    Write-Host "$BLUE[è°ƒè¯•]$NC sqmId: $SQM_ID"
 
-    # ÏÔÊ¾ÎÄ¼şÊ÷½á¹¹
+    # æ˜¾ç¤ºæ–‡ä»¶æ ‘ç»“æ„
     Write-Host ""
-    Write-Host "$GREEN[ĞÅÏ¢]$NC ÎÄ¼ş½á¹¹:"
+    Write-Host "$GREEN[ä¿¡æ¯]$NC æ–‡ä»¶ç»“æ„:"
     Write-Host "$BLUE$env:APPDATA\Cursor\User$NC"
-    Write-Host "©À©¤©¤ globalStorage"
-    Write-Host "©¦   ©À©¤©¤ storage.json (ÒÑĞŞ¸Ä)"
-    Write-Host "©¦   ©¸©¤©¤ backups"
+    Write-Host "â”œâ”€â”€ globalStorage"
+    Write-Host "â”‚   â”œâ”€â”€ storage.json (å·²ä¿®æ”¹)"
+    Write-Host "â”‚   â””â”€â”€ backups"
 
-    # ÁĞ³ö±¸·İÎÄ¼ş
+    # åˆ—å‡ºå¤‡ä»½æ–‡ä»¶
     $backupFiles = Get-ChildItem "$BACKUP_DIR\*" -ErrorAction SilentlyContinue
     if ($backupFiles) {
         foreach ($file in $backupFiles) {
-            Write-Host "©¦       ©¸©¤©¤ $($file.Name)"
+            Write-Host "â”‚       â””â”€â”€ $($file.Name)"
         }
     } else {
-        Write-Host "©¦       ©¸©¤©¤ (¿Õ)"
+        Write-Host "â”‚       â””â”€â”€ (ç©º)"
     }
 
-    # ÏÔÊ¾¹«ÖÚºÅĞÅÏ¢
+    # æ˜¾ç¤ºå…¬ä¼—å·ä¿¡æ¯
     Write-Host ""
     Write-Host "$GREEN================================$NC"
-    Write-Host "$YELLOW »¶Ó­¹Ø×¢pddµêÆÌ:»¨ÖÓÄ¾µêÆÌ  $NC"
+    Write-Host "$YELLOW æ¬¢è¿å…³æ³¨pddåº—é“º:èŠ±é’Ÿæœ¨åº—é“º  $NC"
     Write-Host "$GREEN================================$NC"
     Write-Host ""
-    Write-Host "$GREEN[ĞÅÏ¢]$NC ÇëÖØÆô Cursor ÒÔÓ¦ÓÃĞÂµÄÅäÖÃ"
+    Write-Host "$GREEN[ä¿¡æ¯]$NC è¯·é‡å¯ Cursor ä»¥åº”ç”¨æ–°çš„é…ç½®"
     Write-Host ""
 
-    # Ñ¯ÎÊÊÇ·ñÒª½ûÓÃ×Ô¶¯¸üĞÂ
+    # è¯¢é—®æ˜¯å¦è¦ç¦ç”¨è‡ªåŠ¨æ›´æ–°
     Write-Host ""
-    Write-Host "$YELLOW[Ñ¯ÎÊ]$NC ÊÇ·ñÒª½ûÓÃ Cursor ×Ô¶¯¸üĞÂ¹¦ÄÜ£¿"
-    Write-Host "0) ·ñ - ±£³ÖÄ¬ÈÏÉèÖÃ (°´»Ø³µ¼ü)"
-    Write-Host "1) ÊÇ - ½ûÓÃ×Ô¶¯¸üĞÂ"
-   # $choice = Read-Host "ÇëÊäÈëÑ¡Ïî (0)"
+    Write-Host "$YELLOW[è¯¢é—®]$NC æ˜¯å¦è¦ç¦ç”¨ Cursor è‡ªåŠ¨æ›´æ–°åŠŸèƒ½ï¼Ÿ"
+    Write-Host "0) å¦ - ä¿æŒé»˜è®¤è®¾ç½® (æŒ‰å›è½¦é”®)"
+    Write-Host "1) æ˜¯ - ç¦ç”¨è‡ªåŠ¨æ›´æ–°"
+   # $choice = Read-Host "è¯·è¾“å…¥é€‰é¡¹ (0)"
     $choice = 1 
     if ($choice -eq "1") {
         Write-Host ""
-        Write-Host "$GREEN[ĞÅÏ¢]$NC ÕıÔÚ´¦Àí×Ô¶¯¸üĞÂ..."
+        Write-Host "$GREEN[ä¿¡æ¯]$NC æ­£åœ¨å¤„ç†è‡ªåŠ¨æ›´æ–°..."
         $updaterPath = "$env:LOCALAPPDATA\cursor-updater"
 
-        # ¶¨ÒåÊÖ¶¯ÉèÖÃ½Ì³Ì
+        # å®šä¹‰æ‰‹åŠ¨è®¾ç½®æ•™ç¨‹
         function Show-ManualGuide {
             Write-Host ""
-            Write-Host "$YELLOW[¾¯¸æ]$NC ×Ô¶¯ÉèÖÃÊ§°Ü,Çë³¢ÊÔÊÖ¶¯²Ù×÷£º"
-            Write-Host "$YELLOWÊÖ¶¯½ûÓÃ¸üĞÂ²½Öè£º$NC"
-            Write-Host "1. ÒÔ¹ÜÀíÔ±Éí·İ´ò¿ª PowerShell"
-            Write-Host "2. ¸´ÖÆÕ³ÌùÒÔÏÂÃüÁî£º"
-            Write-Host "$BLUEÃüÁî1 - É¾³ıÏÖÓĞÄ¿Â¼£¨Èç¹û´æÔÚ£©£º$NC"
+            Write-Host "$YELLOW[è­¦å‘Š]$NC è‡ªåŠ¨è®¾ç½®å¤±è´¥,è¯·å°è¯•æ‰‹åŠ¨æ“ä½œï¼š"
+            Write-Host "$YELLOWæ‰‹åŠ¨ç¦ç”¨æ›´æ–°æ­¥éª¤ï¼š$NC"
+            Write-Host "1. ä»¥ç®¡ç†å‘˜èº«ä»½æ‰“å¼€ PowerShell"
+            Write-Host "2. å¤åˆ¶ç²˜è´´ä»¥ä¸‹å‘½ä»¤ï¼š"
+            Write-Host "$BLUEå‘½ä»¤1 - åˆ é™¤ç°æœ‰ç›®å½•ï¼ˆå¦‚æœå­˜åœ¨ï¼‰ï¼š$NC"
             Write-Host "Remove-Item -Path `"$updaterPath`" -Force -Recurse -ErrorAction SilentlyContinue"
             Write-Host ""
-            Write-Host "$BLUEÃüÁî2 - ´´½¨×èÖ¹ÎÄ¼ş£º$NC"
+            Write-Host "$BLUEå‘½ä»¤2 - åˆ›å»ºé˜»æ­¢æ–‡ä»¶ï¼š$NC"
             Write-Host "New-Item -Path `"$updaterPath`" -ItemType File -Force | Out-Null"
             Write-Host ""
-            Write-Host "$BLUEÃüÁî3 - ÉèÖÃÖ»¶ÁÊôĞÔ£º$NC"
+            Write-Host "$BLUEå‘½ä»¤3 - è®¾ç½®åªè¯»å±æ€§ï¼š$NC"
             Write-Host "Set-ItemProperty -Path `"$updaterPath`" -Name IsReadOnly -Value `$true"
             Write-Host ""
-            Write-Host "$BLUEÃüÁî4 - ÉèÖÃÈ¨ÏŞ£¨¿ÉÑ¡£©£º$NC"
+            Write-Host "$BLUEå‘½ä»¤4 - è®¾ç½®æƒé™ï¼ˆå¯é€‰ï¼‰ï¼š$NC"
             Write-Host "icacls `"$updaterPath`" /inheritance:r /grant:r `"`$($env:USERNAME):(R)`""
             Write-Host ""
-            Write-Host "$YELLOWÑéÖ¤·½·¨£º$NC"
-            Write-Host "1. ÔËĞĞÃüÁî£ºGet-ItemProperty `"$updaterPath`""
-            Write-Host "2. È·ÈÏ IsReadOnly ÊôĞÔÎª True"
-            Write-Host "3. ÔËĞĞÃüÁî£ºicacls `"$updaterPath`""
-            Write-Host "4. È·ÈÏÖ»ÓĞ¶ÁÈ¡È¨ÏŞ"
+            Write-Host "$YELLOWéªŒè¯æ–¹æ³•ï¼š$NC"
+            Write-Host "1. è¿è¡Œå‘½ä»¤ï¼šGet-ItemProperty `"$updaterPath`""
+            Write-Host "2. ç¡®è®¤ IsReadOnly å±æ€§ä¸º True"
+            Write-Host "3. è¿è¡Œå‘½ä»¤ï¼šicacls `"$updaterPath`""
+            Write-Host "4. ç¡®è®¤åªæœ‰è¯»å–æƒé™"
             Write-Host ""
-            Write-Host "$YELLOW[ÌáÊ¾]$NC Íê³ÉºóÇëÖØÆô Cursor"
+            Write-Host "$YELLOW[æç¤º]$NC å®Œæˆåè¯·é‡å¯ Cursor"
         }
 
         try {
-            # ¼ì²écursor-updaterÊÇ·ñ´æÔÚ
+            # æ£€æŸ¥cursor-updateræ˜¯å¦å­˜åœ¨
             if (Test-Path $updaterPath) {
-                # Èç¹ûÊÇÎÄ¼ş,ËµÃ÷ÒÑ¾­´´½¨ÁË×èÖ¹¸üĞÂ
+                # å¦‚æœæ˜¯æ–‡ä»¶,è¯´æ˜å·²ç»åˆ›å»ºäº†é˜»æ­¢æ›´æ–°
                 if ((Get-Item $updaterPath) -is [System.IO.FileInfo]) {
-                    Write-Host "$GREEN[ĞÅÏ¢]$NC ÒÑ´´½¨×èÖ¹¸üĞÂÎÄ¼ş,ÎŞĞèÔÙ´Î×èÖ¹"
+                    Write-Host "$GREEN[ä¿¡æ¯]$NC å·²åˆ›å»ºé˜»æ­¢æ›´æ–°æ–‡ä»¶,æ— éœ€å†æ¬¡é˜»æ­¢"
                     return
                 }
-                # Èç¹ûÊÇÄ¿Â¼,³¢ÊÔÉ¾³ı
+                # å¦‚æœæ˜¯ç›®å½•,å°è¯•åˆ é™¤
                 else {
                     try {
                         Remove-Item -Path $updaterPath -Force -Recurse -ErrorAction Stop
-                        Write-Host "$GREEN[ĞÅÏ¢]$NC ³É¹¦É¾³ı cursor-updater Ä¿Â¼"
+                        Write-Host "$GREEN[ä¿¡æ¯]$NC æˆåŠŸåˆ é™¤ cursor-updater ç›®å½•"
                     }
                     catch {
-                        Write-Host "$RED[´íÎó]$NC É¾³ı cursor-updater Ä¿Â¼Ê§°Ü"
+                        Write-Host "$RED[é”™è¯¯]$NC åˆ é™¤ cursor-updater ç›®å½•å¤±è´¥"
                         Show-ManualGuide
                         return
                     }
                 }
             }
 
-            # ´´½¨×èÖ¹ÎÄ¼ş
+            # åˆ›å»ºé˜»æ­¢æ–‡ä»¶
             try {
                 New-Item -Path $updaterPath -ItemType File -Force -ErrorAction Stop | Out-Null
-                Write-Host "$GREEN[ĞÅÏ¢]$NC ³É¹¦´´½¨×èÖ¹ÎÄ¼ş"
+                Write-Host "$GREEN[ä¿¡æ¯]$NC æˆåŠŸåˆ›å»ºé˜»æ­¢æ–‡ä»¶"
             }
             catch {
-                Write-Host "$RED[´íÎó]$NC ´´½¨×èÖ¹ÎÄ¼şÊ§°Ü"
+                Write-Host "$RED[é”™è¯¯]$NC åˆ›å»ºé˜»æ­¢æ–‡ä»¶å¤±è´¥"
                 Show-ManualGuide
                 return
             }
 
-            # ÉèÖÃÎÄ¼şÈ¨ÏŞ
+            # è®¾ç½®æ–‡ä»¶æƒé™
             try {
-                # ÉèÖÃÖ»¶ÁÊôĞÔ
+                # è®¾ç½®åªè¯»å±æ€§
                 Set-ItemProperty -Path $updaterPath -Name IsReadOnly -Value $true -ErrorAction Stop
                 
-                # Ê¹ÓÃ icacls ÉèÖÃÈ¨ÏŞ
+                # ä½¿ç”¨ icacls è®¾ç½®æƒé™
                 $result = Start-Process "icacls.exe" -ArgumentList "`"$updaterPath`" /inheritance:r /grant:r `"$($env:USERNAME):(R)`"" -Wait -NoNewWindow -PassThru
                 if ($result.ExitCode -ne 0) {
-                    throw "icacls ÃüÁîÊ§°Ü"
+                    throw "icacls å‘½ä»¤å¤±è´¥"
                 }
                 
-                Write-Host "$GREEN[ĞÅÏ¢]$NC ³É¹¦ÉèÖÃÎÄ¼şÈ¨ÏŞ"
+                Write-Host "$GREEN[ä¿¡æ¯]$NC æˆåŠŸè®¾ç½®æ–‡ä»¶æƒé™"
             }
             catch {
-                Write-Host "$RED[´íÎó]$NC ÉèÖÃÎÄ¼şÈ¨ÏŞÊ§°Ü"
+                Write-Host "$RED[é”™è¯¯]$NC è®¾ç½®æ–‡ä»¶æƒé™å¤±è´¥"
                 Show-ManualGuide
                 return
             }
 
-            # ÑéÖ¤ÉèÖÃ
+            # éªŒè¯è®¾ç½®
             try {
                 $fileInfo = Get-ItemProperty $updaterPath
                 if (-not $fileInfo.IsReadOnly) {
-                    Write-Host "$RED[´íÎó]$NC ÑéÖ¤Ê§°Ü£ºÎÄ¼şÈ¨ÏŞÉèÖÃ¿ÉÄÜÎ´ÉúĞ§"
+                    Write-Host "$RED[é”™è¯¯]$NC éªŒè¯å¤±è´¥ï¼šæ–‡ä»¶æƒé™è®¾ç½®å¯èƒ½æœªç”Ÿæ•ˆ"
                     Show-ManualGuide
                     return
                 }
             }
             catch {
-                Write-Host "$RED[´íÎó]$NC ÑéÖ¤ÉèÖÃÊ§°Ü"
+                Write-Host "$RED[é”™è¯¯]$NC éªŒè¯è®¾ç½®å¤±è´¥"
                 Show-ManualGuide
                 return
             }
 
-            Write-Host "$GREEN[ĞÅÏ¢]$NC ³É¹¦½ûÓÃ×Ô¶¯¸üĞÂ"
+            Write-Host "$GREEN[ä¿¡æ¯]$NC æˆåŠŸç¦ç”¨è‡ªåŠ¨æ›´æ–°"
         }
         catch {
-            Write-Host "$RED[´íÎó]$NC ·¢ÉúÎ´Öª´íÎó: $_"
+            Write-Host "$RED[é”™è¯¯]$NC å‘ç”ŸæœªçŸ¥é”™è¯¯: $_"
             Show-ManualGuide
         }
     }
     else {
-        Write-Host "$GREEN[ĞÅÏ¢]$NC ±£³ÖÄ¬ÈÏÉèÖÃ£¬²»½øĞĞ¸ü¸Ä"
+        Write-Host "$GREEN[ä¿¡æ¯]$NC ä¿æŒé»˜è®¤è®¾ç½®ï¼Œä¸è¿›è¡Œæ›´æ”¹"
     }
 
-    # ±£ÁôÓĞĞ§µÄ×¢²á±í¸üĞÂ
+    # ä¿ç•™æœ‰æ•ˆçš„æ³¨å†Œè¡¨æ›´æ–°
     Update-MachineGuid
 
 } catch {
-    Write-Host "$RED[´íÎó]$NC Ö÷Òª²Ù×÷Ê§°Ü: $_"
-    Write-Host "$YELLOW[³¢ÊÔ]$NC Ê¹ÓÃ±¸Ñ¡·½·¨..."
+    Write-Host "$RED[é”™è¯¯]$NC ä¸»è¦æ“ä½œå¤±è´¥: $_"
+    Write-Host "$YELLOW[å°è¯•]$NC ä½¿ç”¨å¤‡é€‰æ–¹æ³•..."
     
     try {
-        # ±¸Ñ¡·½·¨£ºÊ¹ÓÃ Add-Content
+        # å¤‡é€‰æ–¹æ³•ï¼šä½¿ç”¨ Add-Content
         $tempFile = [System.IO.Path]::GetTempFileName()
         $config | ConvertTo-Json | Set-Content -Path $tempFile -Encoding UTF8
         Copy-Item -Path $tempFile -Destination $STORAGE_FILE -Force
         Remove-Item -Path $tempFile
-        Write-Host "$GREEN[ĞÅÏ¢]$NC Ê¹ÓÃ±¸Ñ¡·½·¨³É¹¦Ğ´ÈëÅäÖÃ"
+        Write-Host "$GREEN[ä¿¡æ¯]$NC ä½¿ç”¨å¤‡é€‰æ–¹æ³•æˆåŠŸå†™å…¥é…ç½®"
     } catch {
-        Write-Host "$RED[´íÎó]$NC ËùÓĞ³¢ÊÔ¶¼Ê§°ÜÁË"
-        Write-Host "´íÎóÏêÇé: $_"
-        Write-Host "Ä¿±êÎÄ¼ş: $STORAGE_FILE"
-        Write-Host "ÇëÈ·±£ÄúÓĞ×ã¹»µÄÈ¨ÏŞ·ÃÎÊ¸ÃÎÄ¼ş"
-        Read-Host "°´»Ø³µ¼üÍË³ö"
+        Write-Host "$RED[é”™è¯¯]$NC æ‰€æœ‰å°è¯•éƒ½å¤±è´¥äº†"
+        Write-Host "é”™è¯¯è¯¦æƒ…: $_"
+        Write-Host "ç›®æ ‡æ–‡ä»¶: $STORAGE_FILE"
+        Write-Host "è¯·ç¡®ä¿æ‚¨æœ‰è¶³å¤Ÿçš„æƒé™è®¿é—®è¯¥æ–‡ä»¶"
+        Read-Host "æŒ‰å›è½¦é”®é€€å‡º"
         exit 1
     }
 }
 
 Write-Host ""
-Read-Host "°´»Ø³µ¼üÍË³ö"
+Read-Host "æŒ‰å›è½¦é”®é€€å‡º"
 exit 0
 
-# ÔÚÎÄ¼şĞ´Èë²¿·ÖĞŞ¸Ä
+# åœ¨æ–‡ä»¶å†™å…¥éƒ¨åˆ†ä¿®æ”¹
 function Write-ConfigFile {
     param($config, $filePath)
     
     try {
-        # Ê¹ÓÃ UTF8 ÎŞ BOM ±àÂë
+        # ä½¿ç”¨ UTF8 æ—  BOM ç¼–ç 
         $utf8NoBom = New-Object System.Text.UTF8Encoding $false
         $jsonContent = $config | ConvertTo-Json -Depth 10
         
-        # Í³Ò»Ê¹ÓÃ LF »»ĞĞ·û
+        # ç»Ÿä¸€ä½¿ç”¨ LF æ¢è¡Œç¬¦
         $jsonContent = $jsonContent.Replace("`r`n", "`n")
         
         [System.IO.File]::WriteAllText(
@@ -529,18 +529,18 @@ function Write-ConfigFile {
             $utf8NoBom
         )
         
-        Write-Host "$GREEN[ĞÅÏ¢]$NC ³É¹¦Ğ´ÈëÅäÖÃÎÄ¼ş(UTF8 ÎŞ BOM)"
+        Write-Host "$GREEN[ä¿¡æ¯]$NC æˆåŠŸå†™å…¥é…ç½®æ–‡ä»¶(UTF8 æ—  BOM)"
     }
     catch {
-        throw "Ğ´ÈëÅäÖÃÎÄ¼şÊ§°Ü: $_"
+        throw "å†™å…¥é…ç½®æ–‡ä»¶å¤±è´¥: $_"
     }
 }
 
-# »ñÈ¡²¢ÏÔÊ¾°æ±¾ĞÅÏ¢
+# è·å–å¹¶æ˜¾ç¤ºç‰ˆæœ¬ä¿¡æ¯
 $cursorVersion = Get-CursorVersion
 Write-Host ""
 if ($cursorVersion) {
-    Write-Host "$GREEN[ĞÅÏ¢]$NC ¼ì²âµ½ Cursor °æ±¾: $cursorVersion£¬¼ÌĞøÖ´ĞĞ..."
+    Write-Host "$GREEN[ä¿¡æ¯]$NC æ£€æµ‹åˆ° Cursor ç‰ˆæœ¬: $cursorVersionï¼Œç»§ç»­æ‰§è¡Œ..."
 } else {
-    Write-Host "$YELLOW[¾¯¸æ]$NC ÎŞ·¨¼ì²â°æ±¾£¬½«¼ÌĞøÖ´ĞĞ..."
+    Write-Host "$YELLOW[è­¦å‘Š]$NC æ— æ³•æ£€æµ‹ç‰ˆæœ¬ï¼Œå°†ç»§ç»­æ‰§è¡Œ..."
 } 
